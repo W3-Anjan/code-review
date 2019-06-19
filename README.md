@@ -26,7 +26,7 @@
                 count++;
             }
             
-- **Java 8 has introduced *default* keyword which is susceptible to define class body inside interface**.
+- **Java 8 has introduced *default* keyword which is susceptible to define method body inside interface**.
 
         public interface Interface1 {
         
