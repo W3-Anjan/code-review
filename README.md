@@ -172,3 +172,22 @@ There are four types of method references (assuming a class named Person with **
         
         AtomicInteger at = new AtomicInteger(0); 
         
+        
+- It is a fairly common mistake by Java programmers to forget releasing resources, even in the finally
+block.
+  - Normally, a finally block is used to ensure that a resource is closed whether the try statement completes normally or not.
+  
+                BufferedReader br = new BufferedReader(new FileReader(path));
+                try {
+                    return br.readLine();
+                } catch(IOException e) {
+                    e.printStackTrace();
+                } finally {
+                    if (br != null) br.close();
+                }
+                
+ - However, Java 7 introduced the **try-with-resources statement**, which ensures that each resource is closed at the end of the statement  
+ 
+                 try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+                        return br.readLine();
+                    }
